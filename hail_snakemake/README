@@ -1,0 +1,84 @@
+# Building Detail:
+
+### Building Image:
+
+```
+➜  hail_snakemake docker build -t hail_snakemake .
+[+] Building 203.4s (14/14) FINISHED                                                                                                      
+ => [internal] load build definition from Dockerfile                                                                                 0.0s
+ => => transferring dockerfile: 1.41kB                                                                                               0.0s
+ => [internal] load .dockerignore                                                                                                    0.0s
+ => => transferring context: 2B                                                                                                      0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:20.04                                                                      0.0s
+ => [1/9] FROM docker.io/library/ubuntu:20.04                                                                                        0.0s
+ => [internal] load build context                                                                                                    0.0s
+ => => transferring context: 175B                                                                                                    0.0s
+ => CACHED [2/9] RUN apt-get update --fix-missing &&   apt-get install -y wget bzip2 build-essential   less vim   ca-certificates g  0.0s
+ => [3/9] RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.3-Linux-x86_64.sh -O ~/miniconda.sh &&   /bin/b  12.2s
+ => [4/9] RUN conda update conda                                                                                                     8.9s
+ => [5/9] RUN conda install -n base -c conda-forge mamba                                                                            15.2s 
+ => [6/9] RUN conda install -n base -c anaconda ipython                                                                              7.0s 
+ => [7/9] RUN mamba install -n base -c conda-forge -c bioconda   snakemake   hail                                                  121.5s 
+ => [8/9] COPY /entrypoint.sh /opt/conda/bin/entrypoint.sh                                                                           0.0s 
+ => [9/9] RUN chmod a+x /opt/conda/bin/entrypoint.sh                                                                                 0.4s 
+ => exporting to image                                                                                                              38.2s 
+ => => exporting layers                                                                                                             38.2s 
+ => => writing image sha256:f1a69b5f9348fcc9638fe0a75ddd165c627832332f06c9394cab726a3ad32bc6                                         0.0s 
+ => => naming to docker.io/library/hail_snakemake                                                                                    0.0s 
+
+➜  hail_snakemake docker images
+REPOSITORY                      TAG        IMAGE ID       CREATED          SIZE
+hail_snakemake                  latest     f1a69b5f9348   26 minutes ago   4.47GB
+...
+
+```
+
+### Tesing:
+
+```
+➜  hail_snakemake docker run --rm -it hail_snakemake /bin/bash
+(base) root@32a41b33f690:/# ipython
+Python 3.7.7 (default, May  7 2020, 21:25:33) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.18.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: import hail
+
+In [2]: hail.init()
+2021-06-22 19:15:58 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+2021-06-22 19:15:59 WARN  Hail:37 - This Hail JAR was compiled for Spark 2.4.5, running with Spark 2.4.1.
+  Compatibility is not guaranteed.
+Running on Apache Spark version 2.4.1
+SparkUI available at http://32a41b33f690:4040
+Welcome to
+     __  __     <>__
+    / /_/ /__  __/ /
+   / __  / _ `/ / /
+  /_/ /_/\_,_/_/_/   version 0.2.61-3c86d3ba497a
+LOGGING: writing to /hail-20210622-1915-0.2.61-3c86d3ba497a.log
+
+```
+
+### Upload to dockerhub:
+
+```
+➜  hail_snakemake docker tag hail_snakemake:latest spashleyfu/hail_snakemake:latest 
+➜  hail_snakemake docker push spashleyfu/hail_snakemake:latest 
+The push refers to repository [docker.io/spashleyfu/hail_snakemake]
+bc76c6c9d864: Pushed 
+1baf12124bc2: Pushed 
+4cf60729601a: Pushed 
+3972019792b1: Pushed 
+e16305604fbe: Pushed 
+65fd385d1693: Pushed 
+793f8197d58c: Pushed 
+b5743ccfbb76: Pushed 
+2f140462f3bc: Mounted from spashleyfu/ubuntu20_snakemake 
+63c99163f472: Mounted from spashleyfu/ubuntu20_snakemake 
+ccdbb80308cc: Mounted from spashleyfu/ubuntu20_snakemake 
+latest: digest: sha256:004c5cfa60ad49cdeaefe7528bdef46d712a1b3460201ab57bfdb8acf9cdac26 size: 2632
+
+```
+

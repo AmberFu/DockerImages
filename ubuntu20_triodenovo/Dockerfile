@@ -16,5 +16,6 @@ COPY tabix-0.2.4.tar.bz2 /opt/triodenovo.0.06/third/tabix-0.2.4.tar.bz2
 COPY third_Makefile /opt/triodenovo.0.06/third/Makefile
 RUN cd /opt/triodenovo.0.06 && make
 RUN rm /opt/triodenovo.0.06/third/*.tar.*
+RUN chmod -R +x /opt/triodenovo.0.06
 
 ENV PATH /opt/triodenovo.0.06/src:$PATH

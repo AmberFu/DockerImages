@@ -5,6 +5,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update --fix-missing && \
     apt install -y mlocate default-jdk \
     wget less vim \
+# crcmod:
+    gcc python3-dev python3-setuptools \
 # gsuit:
     apt-transport-https gnupg curl && \
     apt-get clean -y
@@ -12,7 +14,6 @@ RUN apt-get update --fix-missing && \
 # gsuit:
 # https://cloud.google.com/storage/docs/gsutil_install#install
 RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - && apt-get update -y && apt-get install google-cloud-sdk -y
-
 
 #RUN cd /opt/ && \
 #    wget https://mirrors.gigenet.com/apache/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz && \
@@ -40,6 +41,10 @@ RUN conda install -n base -c conda-forge mamba
 RUN conda install -n base -c conda-forge pyspark
 RUN conda install -n base -c conda-forge -c bioconda hail
 RUN mamba install -n base -c conda-forge jupyterlab
+
+
+# To compile and install crcmod:
+RUN pip3 uninstall crcmod && pip3 install --no-cache-dir -U crcmod
 
 
 COPY /entrypoint.sh /opt/conda/bin/entrypoint.sh

@@ -6,7 +6,7 @@ Globus is a non-profit service for secure, reliable research data management.
 
 #### My dockerhub link: https://hub.docker.com/repository/docker/spashleyfu/globus_cli_wustl
 
-The way I build Image
+The way building Image
 
 ```
 ➜  WUSTL_GlobusCLI docker build -t spashleyfu/globus_cli_wustl:pigz .

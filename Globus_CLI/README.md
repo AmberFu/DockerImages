@@ -45,3 +45,34 @@ The way building Image
                                                                                                                               
 Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them                         
 ```
+
+Vulnerabilities check:
+
+```
+➜  WUSTL_GlobusCLI docker scan spashleyfu/globus_cli_wustl:pigz
+
+Testing spashleyfu/globus_cli_wustl:pigz...
+
+...
+
+Package manager:   deb
+Project name:      docker-image|spashleyfu/globus_cli_wustl
+Docker image:      spashleyfu/globus_cli_wustl:pigz
+Platform:          linux/amd64
+Base image:        ubuntu:20.04
+
+Tested 253 dependencies for known vulnerabilities, found 41 vulnerabilities.
+
+Base Image    Vulnerabilities  Severity
+ubuntu:20.04  14               0 critical, 0 high, 2 medium, 12 low
+
+Recommendations for base image upgrade:
+
+Major upgrades
+Base Image     Vulnerabilities  Severity
+ubuntu:latest  9                0 critical, 0 high, 2 medium, 7 low
+
+
+For more free scans that keep your images secure, sign up to Snyk at https://dockr.ly/3ePqVcp
+
+```

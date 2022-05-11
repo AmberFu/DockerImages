@@ -52,7 +52,9 @@ Follow https://cloud.google.com/container-registry/docs/advanced-authentication
     * Go to the GCP Console. Select “API & Services” > “Credentials”
     ![Credentials Services](https://github.com/AmberFu/DockerImages/blob/main/parabricksv36_snakemake/Screen%20Shot%202022-05-10%20at%205.20.06%20PM.png)
     
-    * Select “Create credentials” > “Services Account Key” > “Create New Services Account”
+    * From “Credentials” > click “Create credentials” > select “Services Account”
+    ![Select Services Account](https://github.com/AmberFu/DockerImages/blob/main/parabricksv36_snakemake/Screen%20Shot%202022-05-10%20at%205.20.25%20PM.png)
+    
     * And then, fill the service account name, and for the Role, select the Viewer
     * 
 

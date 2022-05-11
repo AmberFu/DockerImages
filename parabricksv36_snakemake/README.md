@@ -55,9 +55,14 @@ Follow https://cloud.google.com/container-registry/docs/advanced-authentication
     * From “Credentials” > click “Create credentials” > select “Services Account”
     ![Select Services Account](https://github.com/AmberFu/DockerImages/blob/main/parabricksv36_snakemake/Screen%20Shot%202022-05-10%20at%205.20.25%20PM.png)
     
-    * And then, fill the service account name, and for the Role, select the Viewer
-    * 
+    * And then, fill the service account detail
+    ![service account detail](https://github.com/AmberFu/DockerImages/blob/main/parabricksv36_snakemake/Screen%20Shot%202022-05-10%20at%205.22.35%20PM.png)
 
+    * For the Role, select the "Viewer"
+    ![Viewer](https://github.com/AmberFu/DockerImages/blob/main/parabricksv36_snakemake/Screen%20Shot%202022-05-10%20at%205.23.27%20PM.png)
+
+    * click DONE
+    ![DONE](https://github.com/AmberFu/DockerImages/blob/main/parabricksv36_snakemake/Screen%20Shot%202022-05-10%20at%205.23.50%20PM.png)
 
 
 

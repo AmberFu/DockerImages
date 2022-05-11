@@ -10,7 +10,7 @@ Error response from daemon: Get "https://gcr.io/v2/": proxyconnect tcp: dial tcp
 ### Resources:
 
 * WUSTL RIS maintain Docker URL: https://console.cloud.google.com/gcr/images/ris-registry-shared/global/parabricks?cloudshell=true
-* 
+* Web tutorial: [How to a pull Docker Image from GCR in any non-GCP Kubernetes cluster, 2019](https://medium.com/hackernoon/today-i-learned-pull-docker-image-from-gcr-google-container-registry-in-any-non-gcp-kubernetes-5f8298f28969)
 
 ### Steps:
 
@@ -39,9 +39,15 @@ Follow https://cloud.google.com/container-registry/docs/advanced-authentication
     WARNING: A long list of credential helpers may cause delays running 'docker build'. We recommend passing the registry name to configure only the registry you are using.
     gcloud credential helpers already registered correctly.
     ```
-5. 
+5. Enabling **Container Registry** service
 
+    Enable the API from Cloud console or with the following gcloud command:
+    
+    ```
+    gcloud services enable containerregistry.googleapis.com
+    ```
 
+6. Create Credentials for GCR: 
 
 ```
 ➜  parabricksv36_snakemake gcloud auth activate-service-account pull-images-from-gcr@nvidia-parabricks-pipelines-3.iam.gserviceaccount.com --key-file=/Users/pfu/Documents/nvidia-parabricks-pipelines-3-455fe3966c39.json

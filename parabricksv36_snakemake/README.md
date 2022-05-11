@@ -49,6 +49,17 @@ Follow https://cloud.google.com/container-registry/docs/advanced-authentication
 
 6. Create Credentials for GCR: 
 
+    * Go to the GCP Console. Select “API & Services” > “Credentials”
+    ![Credentials Services](https://github.com/AmberFu/DockerImages/blob/main/parabricksv36_snakemake/Screen%20Shot%202022-05-10%20at%205.20.06%20PM.png)
+    
+    * Select “Create credentials” > “Services Account Key” > “Create New Services Account”
+    * And then, fill the service account name, and for the Role, select the Viewer
+    * 
+
+
+
+
+
 ```
 ➜  parabricksv36_snakemake gcloud auth activate-service-account pull-images-from-gcr@nvidia-parabricks-pipelines-3.iam.gserviceaccount.com --key-file=/Users/pfu/Documents/nvidia-parabricks-pipelines-3-455fe3966c39.json
 Activated service account credentials for: [pull-images-from-gcr@nvidia-parabricks-pipelines-3.iam.gserviceaccount.com]

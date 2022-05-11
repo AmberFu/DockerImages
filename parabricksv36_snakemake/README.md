@@ -10,11 +10,10 @@ Error response from daemon: Get "https://gcr.io/v2/": proxyconnect tcp: dial tcp
 ### Resources:
 
 * WUSTL RIS maintain Docker URL: https://console.cloud.google.com/gcr/images/ris-registry-shared/global/parabricks?cloudshell=true
-* Web tutorial: [How to a pull Docker Image from GCR in any non-GCP Kubernetes cluster, 2019](https://medium.com/hackernoon/today-i-learned-pull-docker-image-from-gcr-google-container-registry-in-any-non-gcp-kubernetes-5f8298f28969)
 
 ### Steps:
 
-Follow https://cloud.google.com/container-registry/docs/advanced-authentication
+Follow [How to a pull Docker Image from GCR in any non-GCP Kubernetes cluster, 2019](https://medium.com/hackernoon/today-i-learned-pull-docker-image-from-gcr-google-container-registry-in-any-non-gcp-kubernetes-5f8298f28969)
 
 1. Install `docker`
 2. Install `gcloud CLI` on local mechine: https://cloud.google.com/sdk/docs/install-sdk
@@ -64,7 +63,21 @@ Follow https://cloud.google.com/container-registry/docs/advanced-authentication
     * click DONE
     ![DONE](https://github.com/AmberFu/DockerImages/blob/main/parabricksv36_snakemake/Screen%20Shot%202022-05-10%20at%205.23.50%20PM.png)
 
+7. Follow GCP Doc - Authentication methods: https://cloud.google.com/container-registry/docs/advanced-authentication
 
+    * [Using `gcloud` credential helper](gcloud credential helper)
+    ```
+    // Make sure Login first: 
+    $ gcloud auth login
+    
+    // View existing service accounts:
+    $ gcloud iam service-accounts list
+    
+    // Configure authentication with service account credentials:
+    $ gcloud auth activate-service-account ACCOUNT --key-file=KEY-FILE
+    ```
+
+    * 
 
 
 ```

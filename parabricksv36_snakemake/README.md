@@ -10,6 +10,7 @@ Error response from daemon: Get "https://gcr.io/v2/": proxyconnect tcp: dial tcp
 ### Resources:
 
 * WUSTL RIS maintain Docker URL: https://console.cloud.google.com/gcr/images/ris-registry-shared/global/parabricks?cloudshell=true
+* Dockerhub: https://hub.docker.com/r/spashleyfu/parabricksv36_snakemakev76
 
 ### Steps:
 
